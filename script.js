@@ -45,19 +45,21 @@ function generateConfig() {
     const numberFields = ['blauw', 'directLinks', 'directRechts', 'directCenter', 'steadyWhite', 'steadyBlue', 'sf', 'pitje'];
 
     numberFields.forEach(field => {
+        console.log(formData.getAll(field));
         const fieldValues = formData.getAll(field).map(Number).filter(value => !isNaN(value)).filter(value => value > 0);
         if (fieldValues.length > 0) {
             configData[field] = fieldValues;
         }
     });
-
-    configData['sirene'] = formData.get('siren');
-    if(!formData.get('dualsiren') == "Geen") {
-        configData['Dualsirene'] = formData.get('dualsiren')
+    configData['sirene'] = formData.get('sirene');
+    if(!formData.get('dualsirene') == "Geen") {
+        configData['Dualsirene'] = formData.get('dualsirene')
     }
+    configData['excludeSiren'] = [];
     if (configData['pitje'] && configData['pitje'].length > 0) {
         configData['excludeSiren'] = ['pitje'];
     }
+    
 
     const spawnVoertuig = formData.get('spawnVoertuig');
 
@@ -102,12 +104,46 @@ function uploadConfig() {
         const reader = new FileReader();
 
         reader.onload = function(e) {
-            const configData = JSON.parse(e.target.result);
+            const luaContent = e.target.result;
+            const configData = parseLuaConfig(luaContent);
             populateForm(configData);
         };
 
         reader.readAsText(file);
     });
+}
+
+function parseLuaConfig(luaContent) {
+    const configData = {};
+    const numberFields = ['blauw', 'directLinks', 'directRechts', 'directCenter', 'steadyWhite', 'steadyBlue', 'sf', 'pitje'];
+
+    numberFields.forEach(field => {
+        const regex = new RegExp(`${field}\\s*=\\s*{(.*?)}`, 's');
+        const match = regex.exec(luaContent);
+        if (match) {
+            const values = match[1].split(',').map(Number).filter(value => !isNaN(value));
+            if (values.length > 0) {
+                configData[field] = values;
+            }
+        }
+    });
+    const sireneMatch = luaContent.match(/sirene\s*=\s*'(.*?)'/);
+    if (sireneMatch) {
+        configData['sirene'] = sireneMatch[1];
+    }
+
+    const dualsireneMatch = luaContent.match(`Dualsirene\s*=\s*'(.*?)'/`);
+    if (dualsireneMatch) {
+        configData['dualsirene'] = dualsireneMatch[1];
+    } else {
+        configData['dualsirene'] = 'Geen';
+    }
+    const spawnVoertuigMatch = luaContent.match(/local spawnVoertuig = \`(.*?)\`/);
+    if (spawnVoertuigMatch) {
+        configData['spawnVoertuig'] = spawnVoertuigMatch[1];
+    }
+
+    return configData;
 }
 
 function populateForm(configData) {
@@ -121,12 +157,13 @@ function populateForm(configData) {
                 const input = document.createElement('input');
                 input.type = 'number';
                 input.value = num;
+                input.name = key;
                 input.className = 'number-field';
                 container.appendChild(input);
             });
         } else {
-            const select = document.querySelector(`[name=${key}]`);
-            if (select) select.value = value;
+            const input = document.querySelector(`[name=${key}]`);
+            if (input) input.value = value;
         }
     }
 }

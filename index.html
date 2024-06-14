@@ -77,8 +77,8 @@
             </div>
 
             <div class="field-group">
-                <label for="siren" data-tooltip="Selecteer een sirene">Sirene:</label>
-                <select name="siren">
+                <label for="sirene" data-tooltip="Selecteer een sirene">Sirene:</label>
+                <select name="sirene">
                     <option value="hoog">Hoog - test</option>
                     <option value="hoog2">Hoog2 - test</option>
                     <option value="asimex">Asimex - test</option>
@@ -90,7 +90,7 @@
                     <option value="mug2">Mug2 - test</option>
                     <option value="ls">LS - test</option>
                     <option value="bc">BC - test</option>
-                    <option value="bw">BW - test</option>
+                    <option value="bwbig">BW - test</option>
                     <option value="bw2">BW2 - test</option>
                     <option value="bwsmall">BWsmall - test</option>
                     <option value="bwcom">BWcom - test</option>
@@ -98,8 +98,8 @@
             </div>
             
             <div class="field-group">
-                <label for="dualsiren" data-tooltip="Selecteer een dualsiren">Dualsiren:</label>
-                <select name="dualsiren" >
+                <label for="dualsirene" data-tooltip="Selecteer een dualsiren">Dualsiren:</label>
+                <select name="dualsirene" >
                     <option value="Pcall">Pcall - test</option>
                     <option value="BPcall">BPcall - test</option>
                     <option value="APcall">APcall - test</option>
@@ -119,7 +119,7 @@
             <div class="button-group">
                 <button type="button" onclick="generateConfig()">Generate Config</button>
                 <button type="button" onclick="uploadConfig()">Upload Config</button>
-                <input type="file" id="fileUpload" style="display:none" accept=".json">
+                <input type="file" id="fileUpload" style="display:none" accept=".lua">
             </div>
         </form>
 
