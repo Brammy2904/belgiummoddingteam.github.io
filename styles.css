@@ -1,60 +1,163 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'ArchitypeRennerMedium', Arial, sans-serif;
+    background: url("images/background.png") no-repeat center center fixed; 
+    background-size: cover;
+    margin: 0;
+    padding: 0;
     color: #333;
 }
 
 header {
+    background-color: #4e4e4e;
+    color: #FFDD00;
+    padding: 10px;
     text-align: center;
-    padding: 20px;
-    background-color: #282c34;
-    color: white;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo {
-    max-width: 100px;
+    width: 50px;
+    margin-right: 20px;
 }
 
 main {
-    padding: 20px;
     max-width: 800px;
-    margin: auto;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    background-color: rgba(255,255,255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .field-group {
     margin-bottom: 20px;
 }
 
-.fields {
-    display: flex;
-    flex-wrap: wrap;
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #D32F2F;
+    font-size: large;
 }
 
-.number-field {
-    margin-right: 10px;
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 10px;
     margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
-    display: block;
+    background-color: #D32F2F;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #FFDD00;
+    color: #000000;
+}
+
+.add-button {
+    background-color: #000000;
+    color: #FFDD00;
+    border: none;
+    padding: 8px 15px;
     margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-button:hover {
+    background-color: #FFDD00;
+    color: #000000;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }
 
 .icon {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    margin: 10px;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .discord-icon {
-    background: url('discord-icon.png') no-repeat center center;
-    background-size: cover;
+    background: url('https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png') no-repeat center center;
+    background-size: contain;
 }
 
 .youtube-icon {
-    background: url('youtube-icon.png') no-repeat center center;
-    background-size: cover;
+    background: url('https://cdn-icons-png.flaticon.com/256/1384/1384060.png') no-repeat center center;
+    background-size: contain;
 }
+
+
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 1000;
+    font-size: 0.9em;
+    transition: opacity 0.2s;
+}
+
+@media (max-width: 600px) {
+    .header-content {
+        flex-direction: column;
+    }
+
+    .logo {
+        margin: 0 0 10px 0;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group button {
+        margin-bottom: 10px;
+    }
+}
+
+@font-face {
+    font-family: 'ArchitypeRennerRegular';
+    src:  url('fonts/ArchitypeRennerRegular.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'ArchitypeRennerBold';
+    src:  url('fonts/ArchitypeRennerBold.woff') format('woff');
+  }
+  
+  @font-face {
+    font-family: 'ArchitypeRennerMedium';
+    src:  url('fonts/ArchitypeRennerMedium.woff') format('woff');
+  }

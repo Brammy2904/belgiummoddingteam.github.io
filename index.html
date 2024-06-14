@@ -8,51 +8,125 @@
 </head>
 <body>
     <header>
-        <h1>Config File Generator</h1>
-        <img src="logo.png" alt="Logo" class="logo">
+        <div class="header-content">
+            <img src="logo.png" alt="Logo" class="logo">
+            <h1>Controlpaneel Config File Generator</h1>
+        </div>
     </header>
     <main>
         <form id="configForm">
-            <div class="field-group" id="blauwGroup">
-                <label for="blauw">Blauw:</label>
-                <div class="fields" id="blauwFields">
-                    <input type="number" name="blauw" class="number-field">
-                </div>
-                <button type="button" onclick="addField('blauwFields')">Add More</button>
+            <div class="field-group">
+                <label for="spawnVoertuig" data-tooltip="Vul de spawnnaam van het voertuig in">Spawn Voertuig:</label>
+                <input type="text" name="spawnVoertuig"  required>
             </div>
-            <!-- Repeat for other options: directLinks, directRechts, directCenter, etc. -->
+            
+            <div class="field-group" id="blauwGroup">
+                <label for="blauw" data-tooltip="Voer de extra's in voor de blauwe verlichting">Blauw:</label>
+                <div class="fields" id="blauwFields">
+                    <input type="number" name="blauw" class="number-field" >
+                </div>
+                <button type="button" class="add-button" onclick="addField('blauwFields')">Voeg extra toe</button>
+            </div>
+
+            <div class="field-group" id="directLinksGroup">
+                <label for="directLinks" data-tooltip="Voer de extra's in voor de linkse traffic advisor">Direct Links:</label>
+                <div class="fields" id="directLinksFields">
+                    <input type="number" name="directLinks" class="number-field" >
+                </div>
+                <button type="button" class="add-button" onclick="addField('directLinksFields')">Voeg extra toe</button>
+            </div>
+
+            <div class="field-group" id="directRechtsGroup">
+                <label for="directRechts" data-tooltip="Voer de extra's in voor de rechtse traffic advisor">Direct Rechts:</label>
+                <div class="fields" id="directRechtsFields">
+                    <input type="number" name="directRechts" class="number-field" >
+                </div>
+                <button type="button" class="add-button" onclick="addField('directRechtsFields')">Voeg extra toe</button>
+            </div>
+
+            <div class="field-group" id="directCenterGroup">
+                <label for="directCenter" data-tooltip="Voer de extra's in voor de gecentreerde traffic advisor">Direct Center:</label>
+                <div class="fields" id="directCenterFields">
+                    <input type="number" name="directCenter" class="number-field">
+                </div>
+                <button type="button" class="add-button" onclick="addField('directCenterFields')">Voeg extra toe</button>
+            </div>
+
+            <div class="field-group" id="steadyWhiteGroup">
+                <label for="steadyWhite" data-tooltip="Voer de extra's in voor de werkverlichting">Steady White:</label>
+                <div class="fields" id="steadyWhiteFields">
+                    <input type="number" name="steadyWhite" class="number-field">
+                </div>
+                <button type="button" class="add-button" onclick="addField('steadyWhiteFields')">Voeg extra toe</button>
+            </div>
+
+            <div class="field-group" id="steadyBlueGroup">
+                <label for="steadyBlue" data-tooltip="Voer de extra's in voor de cruise verlichting">Steady Blue:</label>
+                <div class="fields" id="steadyBlueFields">
+                    <input type="number" name="steadyBlue" class="number-field">
+                </div>
+                <button type="button" class="add-button" onclick="addField('steadyBlueFields')">Voeg extra toe</button>
+            </div>
+
+            <div class="field-group" id="sfGroup">
+                <label for="sf" data-tooltip="Voer de extra's in voor de Siren Flashers (lichten die aangaan bij de sirene)">SF:</label>
+                <div class="fields" id="sfFields">
+                    <input type="number" name="sf" class="number-field" >
+                </div>
+                <button type="button" class="add-button" onclick="addField('sfFields')">Voeg extra toe</button>
+            </div>
 
             <div class="field-group">
-                <label for="siren">Sirene:</label>
+                <label for="siren" data-tooltip="Selecteer een sirene">Sirene:</label>
                 <select name="siren">
                     <option value="hoog">Hoog - test</option>
-                    <!-- Add other options here -->
+                    <option value="hoog2">Hoog2 - test</option>
+                    <option value="asimex">Asimex - test</option>
+                    <option value="ambulance">Ambulance - test</option>
+                    <option value="ambulance2">Ambulance2 - test</option>
+                    <option value="ambulance3">Ambulance3 - test</option>
+                    <option value="nl">NL - test</option>
+                    <option value="mug">Mug - test</option>
+                    <option value="mug2">Mug2 - test</option>
+                    <option value="ls">LS - test</option>
+                    <option value="bc">BC - test</option>
+                    <option value="bw">BW - test</option>
+                    <option value="bw2">BW2 - test</option>
+                    <option value="bwsmall">BWsmall - test</option>
+                    <option value="bwcom">BWcom - test</option>
                 </select>
             </div>
             
             <div class="field-group">
-                <label for="dualsiren">Dualsiren:</label>
-                <select name="dualsiren">
+                <label for="dualsiren" data-tooltip="Selecteer een dualsiren">Dualsiren:</label>
+                <select name="dualsiren" >
                     <option value="Pcall">Pcall - test</option>
-                    <!-- Add other options here -->
+                    <option value="BPcall">BPcall - test</option>
+                    <option value="APcall">APcall - test</option>
+                    <option value="MPcall">MPcall - test</option>
+                    <option value="Geen">Geen - Geen dualsirene</option>
                 </select>
             </div>
 
-            <div class="field-group">
-                <label for="pitje">PITJE:</label>
+            <div class="field-group" id="pitjeGroup">
+                <label for="pitje" data-tooltip="Voer de extra's in voor het pitje">PITJE:</label>
                 <div class="fields" id="pitjeFields">
-                    <input type="number" name="pitje" class="number-field">
+                    <input type="number" name="pitje" class="number-field" >
                 </div>
-                <button type="button" onclick="addField('pitjeFields')">Add More</button>
+                <button type="button" class="add-button" onclick="addField('pitjeFields')">Voeg extra toe</button>
             </div>
 
-            <button type="button" onclick="generateConfig()">Generate Config</button>
-            <button type="button" onclick="uploadConfig()">Upload Config</button>
-            <input type="file" id="fileUpload" style="display:none" accept=".json">
+            <div class="button-group">
+                <button type="button" onclick="generateConfig()">Generate Config</button>
+                <button type="button" onclick="uploadConfig()">Upload Config</button>
+                <input type="file" id="fileUpload" style="display:none" accept=".json">
+            </div>
         </form>
 
-        <a href="discord-link" class="icon discord-icon"></a>
-        <a href="youtube-link" class="icon youtube-icon"></a>
+        <div class="icons">
+            <a href="https://discord.gg/GzHNhSe" class="icon discord-icon"></a>
+            <a href="https://www.youtube.com/@BelgiumModdingTeam" class="icon youtube-icon"></a>
+        </div>
     </main>
     <script src="script.js"></script>
 </body>
