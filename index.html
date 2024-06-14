@@ -1,7 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Config File Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <header>
+        <h1>Config File Generator</h1>
+        <img src="logo.png" alt="Logo" class="logo">
+    </header>
+    <main>
+        <form id="configForm">
+            <div class="field-group" id="blauwGroup">
+                <label for="blauw">Blauw:</label>
+                <div class="fields" id="blauwFields">
+                    <input type="number" name="blauw" class="number-field">
+                </div>
+                <button type="button" onclick="addField('blauwFields')">Add More</button>
+            </div>
+            <!-- Repeat for other options: directLinks, directRechts, directCenter, etc. -->
+
+            <div class="field-group">
+                <label for="siren">Sirene:</label>
+                <select name="siren">
+                    <option value="hoog">Hoog - test</option>
+                    <!-- Add other options here -->
+                </select>
+            </div>
+            
+            <div class="field-group">
+                <label for="dualsiren">Dualsiren:</label>
+                <select name="dualsiren">
+                    <option value="Pcall">Pcall - test</option>
+                    <!-- Add other options here -->
+                </select>
+            </div>
+
+            <div class="field-group">
+                <label for="pitje">PITJE:</label>
+                <div class="fields" id="pitjeFields">
+                    <input type="number" name="pitje" class="number-field">
+                </div>
+                <button type="button" onclick="addField('pitjeFields')">Add More</button>
+            </div>
+
+            <button type="button" onclick="generateConfig()">Generate Config</button>
+            <button type="button" onclick="uploadConfig()">Upload Config</button>
+            <input type="file" id="fileUpload" style="display:none" accept=".json">
+        </form>
+
+        <a href="discord-link" class="icon discord-icon"></a>
+        <a href="youtube-link" class="icon youtube-icon"></a>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>

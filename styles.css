@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #282c34;
+    color: white;
+}
+
+.logo {
+    max-width: 100px;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.field-group {
+    margin-bottom: 20px;
+}
+
+.fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.number-field {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    display: block;
+    margin-top: 10px;
+}
+
+.icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin: 10px;
+}
+
+.discord-icon {
+    background: url('discord-icon.png') no-repeat center center;
+    background-size: cover;
+}
+
+.youtube-icon {
+    background: url('youtube-icon.png') no-repeat center center;
+    background-size: cover;
+}
